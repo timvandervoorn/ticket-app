@@ -1,0 +1,13 @@
+img {
+  width: 200px;
+  height: auto;
+}
+
+img {
+  width: auto;
+  height: 200px;
+}
+
+.link {
+  text-decoration: none;
+}
