@@ -20,7 +20,8 @@ class CommentForm extends PureComponent {
 
   handleSubmit = e => {
     e.preventDefault()
-    this.props.onSubmit(this.state)
+    // this.props.onSubmit(this.state)
+    this.props.handleCommentCreate(this.state)
     this.setState({
       comment: ""
     })

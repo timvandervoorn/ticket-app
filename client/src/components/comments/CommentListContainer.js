@@ -32,22 +32,20 @@ class CommentListContainer extends PureComponent {
     )
   }
 
-  handleDelete = data => {
-    console.log(data)
-    this.props.deleteComment(this.props.ticketId, data)
-  }
-
   render() {
     const { comments, users, user } = this.props
 
     return (
       <div>
-        <CommentForm onSubmit={this.handleSubmit} />
+        <CommentForm
+          onSubmit={this.handleSubmit}
+          handleCommentCreate={this.props.handleCommentCreate}
+        />
         <CommentList
           comments={comments}
           users={users}
           user={user}
-          handleDelete={this.handleDelete}
+          handleDelete={this.props.handleCommentDelete}
         />
       </div>
     )

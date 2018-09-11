@@ -15,6 +15,7 @@ import { styles } from "../../lib/inlineStyles"
 import Grid from "@material-ui/core/Grid"
 import { withStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
+import { deleteComment, createComment } from "../../actions/comments"
 
 class TicketDetailsContainer extends PureComponent {
   state = {
@@ -60,7 +61,14 @@ class TicketDetailsContainer extends PureComponent {
     }
   }
 
-  componentDidUpdate() {
+  // componentDidUpdate(prevProps) {
+  //   // Typical usage (don't forget to compare props):
+  //   if (this.props.userID !== prevProps.userID) {
+  //     this.fetchData(this.props.userID);
+  //   }
+  // }
+
+  componentDidUpdate(prevProps) {
     if (this.props.currentTicket !== null) {
       if (this.props.singleCustomer === null) {
         this.props.getSingleCustomer(
@@ -68,43 +76,51 @@ class TicketDetailsContainer extends PureComponent {
         )
       }
     }
+    console.log(this.props.currentTicket)
+    console.log(prevProps)
+    // if (this.props.currentTicket.payload.numOfComments !== null) {
+    //   if (this.props.currentTicket !== prevProps.currentTicket) {
+    //     this.props.getTicketDetails(
+    //       this.props.match.params.id,
+    //       this.props.match.params.ticketId
+    //     )
+    //   }
+    // }
+  }
+
+  handleCommentCreate = data => {
+    this.props.createComment(
+      this.props.match.params.id,
+      this.props.match.params.ticketId,
+      data.comment
+    )
+    this.props.getTicketDetails(
+      this.props.match.params.id,
+      this.props.match.params.ticketId
+    )
+    console.log("ticket details fetched")
+  }
+
+  handleCommentDelete = data => {
+    this.props.deleteComment(this.props.match.params.ticketId, data)
+
+    this.props.getTicketDetails(
+      this.props.match.params.id,
+      this.props.match.params.ticketId
+    )
+    console.log("ticket details fetched")
   }
 
   currentRiskLevel
 
   render() {
-    const {
-      user,
-      tickets,
-      currentTicket,
-      singleCustomer,
-      users,
-      classes
-    } = this.props
-
-    let currentRiskLevel
+    const { user, tickets, currentTicket, users, classes } = this.props
 
     if (!user || !tickets || !currentTicket) return "Loading"
 
     {
       !user && <Redirect to="/" />
     }
-
-    // if (
-    //   currentTicket.payload.price &&
-    //   singleCustomer &&
-    //   this.averageTicketPrice(tickets) &&
-    //   currentTicket.payload.createdAt &&
-    //   this.props.comments
-    // ) {
-    //   currentRiskLevel = calculateRisk(
-    //     currentTicket.payload.price,
-    //     singleCustomer.payload.ticketsOnSale,
-    //     this.averageTicketPrice(tickets),
-    //     currentTicket.payload.createdAt,
-    //     this.props.comments.length
-    //   )
-    // }
 
     return (
       <div>
@@ -148,6 +164,8 @@ class TicketDetailsContainer extends PureComponent {
             <CommentListContainer
               eventId={this.props.match.params.id}
               ticketId={this.props.match.params.ticketId}
+              handleCommentDelete={this.handleCommentDelete}
+              handleCommentCreate={this.handleCommentCreate}
             />
           </div>
         )}
@@ -175,7 +193,9 @@ export default withStyles(styles)(
       getTicketDetails,
       getTicketsForCurrentEvent,
       getSingleCustomer,
-      editTicket
+      editTicket,
+      deleteComment,
+      createComment
     }
   )(TicketDetailsContainer)
 )

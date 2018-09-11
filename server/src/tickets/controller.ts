@@ -75,16 +75,13 @@ export default class TicketController {
       })
     })
 
-    ticket.risk = calculateRisk(
+    ticket["risk"] = calculateRisk(
       ticket.price,
       authorTickets,
       avgTicketPrice,
       ticket.createdAt,
       ticket.numOfComments
     )
-
-    console.log(ticket)
-
     return ticket
   }
 

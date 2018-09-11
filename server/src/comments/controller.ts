@@ -74,17 +74,28 @@ export default class CommentController {
 
   @Authorized()
   @Delete("/tickets/:id([0-9]+)/comments/:commentId([0-9]+)")
-  async deleteEvent(
+  async deleteComment(
     @Param("commentId") commentId: number,
+    @Param("id") id: number,
     @CurrentUser() user: User
   ) {
-    console.log(commentId)
     const comment = await Comment.findOne(commentId)
     if (!comment)
       throw new NotFoundError(`Comment with id ${commentId} was not found`)
 
     const customer = await Customer.findOne({ user })
     if (!customer) throw new NotFoundError(`Customer was not found`)
+
+    const ticket = await Ticket.findOne(id)
+    if (!ticket) throw new NotFoundError(`Customer was not found`)
+
+    ticket.numOfComments--
+
+    if (ticket.numOfComments <= 0) {
+      ticket.numOfComments = 0
+    }
+
+    await ticket.save()
 
     customer.numberOfPostedComments--
 

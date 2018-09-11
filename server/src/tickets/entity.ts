@@ -32,9 +32,6 @@ export class Ticket extends BaseEntity {
   @Column({ default: 0 })
   numOfComments: number
 
-  @Column({ nullable: true })
-  risk: number
-
   @IsString()
   @Column("text", { nullable: false })
   description: string
