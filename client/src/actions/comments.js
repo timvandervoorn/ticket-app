@@ -66,4 +66,3 @@ export const deleteComment = (ticketId, commentId) => (dispatch, getState) => {
     .then(() => dispatch(removeComment(commentId)))
     .catch(err => console.error(err))
 }
-// FIX REDUCER

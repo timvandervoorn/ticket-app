@@ -120,6 +120,4 @@ export const deleteTicket = (eventId, ticketId) => (dispatch, getState) => {
     .set("Authorization", `Bearer ${jwt}`)
     .then(() => dispatch(removeTicket(ticketId)))
     .catch(err => console.error(err))
-
-  // FIX REDUCER
 }

@@ -1,17 +1,13 @@
-import React, { PureComponent } from "react"
-import "./EditTicketForm.css"
-import { connect } from "react-redux"
-
-import Paper from "@material-ui/core/Paper"
-import Grid from "@material-ui/core/Grid"
-import { withStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
-
-import TextField from "@material-ui/core/TextField"
-
+import Grid from "@material-ui/core/Grid"
 import InputAdornment from "@material-ui/core/InputAdornment"
-
+import Paper from "@material-ui/core/Paper"
+import { withStyles } from "@material-ui/core/styles"
+import TextField from "@material-ui/core/TextField"
+import React, { PureComponent } from "react"
+import { connect } from "react-redux"
 import { styles } from "../../lib/inlineStyles"
+import "./EditTicketForm.css"
 
 class EditTicketForm extends PureComponent {
   state = {}

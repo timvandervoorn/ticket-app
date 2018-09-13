@@ -1,19 +1,16 @@
+import Button from "@material-ui/core/Button"
+import Grid from "@material-ui/core/Grid"
+import InputAdornment from "@material-ui/core/InputAdornment"
+import Paper from "@material-ui/core/Paper"
+import { withStyles } from "@material-ui/core/styles"
+import TextField from "@material-ui/core/TextField"
+import Typography from "@material-ui/core/Typography"
 import React, { PureComponent } from "react"
-import "./TicketForm.css"
 import { connect } from "react-redux"
 import { getEvents } from "../../actions/events"
 import { createTicket } from "../../actions/tickets"
-
-import Paper from "@material-ui/core/Paper"
-import Grid from "@material-ui/core/Grid"
-import { withStyles } from "@material-ui/core/styles"
-import Button from "@material-ui/core/Button"
-import Typography from "@material-ui/core/Typography"
-import TextField from "@material-ui/core/TextField"
-
-import InputAdornment from "@material-ui/core/InputAdornment"
-
 import { styles } from "../../lib/inlineStyles"
+import "./TicketForm.css"
 
 class TicketForm extends PureComponent {
   componentDidMount() {
@@ -29,7 +26,6 @@ class TicketForm extends PureComponent {
 
   handleSubmit = e => {
     e.preventDefault()
-    // this.props.onSubmit(this.state)
     this.props.createTicket(
       this.props.event.id,
       this.state.picture,
@@ -42,8 +38,6 @@ class TicketForm extends PureComponent {
       description: "",
       picture: ""
     })
-
-    // this.props.history.push(`/events/${this.props.event.id}`)
     this.props.toggleTicketDisplay()
   }
 

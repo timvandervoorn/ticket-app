@@ -1,9 +1,9 @@
 import {
-  CREATE_TICKET,
-  UPDATE_TICKETS,
   ADD_TICKET_SUCCESS,
+  CREATE_TICKET,
+  DELETE_TICKET,
   UPDATE_TICKET,
-  DELETE_TICKET
+  UPDATE_TICKETS
 } from "../actions/tickets"
 
 export default (state = null, { type, payload }) => {

@@ -1,15 +1,15 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom"
-import LoginPage from "./components/login/LoginPage"
-import SignupPage from "./components/signup/SignupPage"
-import LogoutPage from "./components/logout/LogoutPage"
-import HomePage from "./components/homepage/HomePage"
+import { BrowserRouter as Router, Redirect, Route } from "react-router-dom"
 import "./App.css"
-import TopNav from "./components/layout/TopNav"
-import EventPageContainer from "./components/events/EventPageContainer"
 import EventDetailsContainer from "./components/events/EventDetailsContainer"
-import TicketForm from "./components/tickets/TicketForm"
+import EventPageContainer from "./components/events/EventPageContainer"
+import HomePage from "./components/homepage/HomePage"
+import TopNav from "./components/layout/TopNav"
+import LoginPage from "./components/login/LoginPage"
+import LogoutPage from "./components/logout/LogoutPage"
+import SignupPage from "./components/signup/SignupPage"
 import TicketDetailsContainer from "./components/tickets/TicketDetailsContainer"
+import TicketForm from "./components/tickets/TicketForm"
 
 class App extends Component {
   render() {

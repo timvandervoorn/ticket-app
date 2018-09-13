@@ -1,7 +1,7 @@
-import { createStore, applyMiddleware, combineReducers, compose } from "redux"
+import { applyMiddleware, combineReducers, compose, createStore } from "redux"
 import ReduxThunk from "redux-thunk"
-import reducers from "./reducers"
 import { storeJwt } from "./middleware"
+import reducers from "./reducers"
 
 const reducer = combineReducers(reducers)
 

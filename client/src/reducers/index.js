@@ -1,13 +1,13 @@
-import users from "./users"
-import login from "./login"
-import currentUser from "./currentUser"
-import signup from "./signup"
-import events from "./events"
-import tickets from "./tickets"
-import currentTicket from "./currentTicket"
 import comments from "./comments"
 import singleCustomer from "./currentCustomer"
+import currentTicket from "./currentTicket"
+import currentUser from "./currentUser"
 import customers from "./customers"
+import events from "./events"
+import login from "./login"
+import signup from "./signup"
+import tickets from "./tickets"
+import users from "./users"
 
 export default {
   users,

@@ -1,7 +1,7 @@
 import {
   CREATE_EVENT,
-  UPDATE_EVENTS,
   DELETE_EVENT,
+  UPDATE_EVENTS,
   UPDATE_SINGLE_EVENT
 } from "../actions/events"
 

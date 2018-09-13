@@ -12,18 +12,5 @@ export const storeJwt = store => next => action => {
   } catch (e) {
     console.log(`Interaction with LocalStorage went wrong`, e)
   }
-
   next(action)
 }
-
-// export const socketIo = socketio => store => next => action => {
-//   if (action.type === USER_LOGIN_SUCCESS) {
-//     const jwt = action.payload.jwt
-//     socketio.connect(store.dispatch, jwt)
-//   }
-//   if (action.type === USER_LOGOUT) {
-//     socketio.disconnect()
-//   }
-
-//   next(action)
-// }

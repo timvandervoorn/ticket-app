@@ -83,12 +83,8 @@ export const editEvent = (eventId, eventUpdate) => (dispatch, getState) => {
     .set("Authorization", `Bearer ${jwt}`)
     .send(eventUpdate)
     .then(result => {
-      // FIX THIS
       dispatch(updateSingleEvent(result.body))
-      console.log(result.body)
       // dispatch(getSingleTicket(result.body))
     })
     .catch(err => console.error(err))
 }
-
-// MAKE GET SINGLE EVENT

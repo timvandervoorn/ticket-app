@@ -1,13 +1,13 @@
 import React, { PureComponent } from "react"
 import { connect } from "react-redux"
-import CommentForm from "./CommentForm"
-import CommentList from "./CommentList"
 import {
   createComment,
-  getCommentsForCurrentTicket,
-  deleteComment
+  deleteComment,
+  getCommentsForCurrentTicket
 } from "../../actions/comments"
 import { userId } from "../../jwt"
+import CommentForm from "./CommentForm"
+import CommentList from "./CommentList"
 
 class CommentListContainer extends PureComponent {
   componentDidMount() {

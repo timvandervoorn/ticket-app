@@ -1,12 +1,11 @@
 import React, { PureComponent } from "react"
 import { connect } from "react-redux"
-import { getEvents, editEvent } from "../../actions/events"
+import { deleteEvent, editEvent, getEvents } from "../../actions/events"
 import { getTicketsForCurrentEvent } from "../../actions/tickets"
-import EventDetails from "./EventDetails"
+import { getCustomers } from "../../actions/users"
 import { userId } from "../../jwt"
 import TicketListContainer from "../tickets/TicketListContainer"
-import { deleteEvent } from "../../actions/events"
-import { getCustomers } from "../../actions/users"
+import EventDetails from "./EventDetails"
 
 class EventDetailsContainer extends PureComponent {
   componentDidMount() {

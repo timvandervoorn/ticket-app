@@ -1,13 +1,11 @@
-import React, { PureComponent } from "react"
+import ButtonBase from "@material-ui/core/ButtonBase"
+import Card from "@material-ui/core/Card"
+import Divider from "@material-ui/core/Divider"
 import Grid from "@material-ui/core/Grid"
 import { withStyles } from "@material-ui/core/styles"
-import Card from "@material-ui/core/Card"
 import Typography from "@material-ui/core/Typography"
-import ButtonBase from "@material-ui/core/ButtonBase"
-import Divider from "@material-ui/core/Divider"
-
 import { Brightness1 } from "@material-ui/icons"
-
+import React, { PureComponent } from "react"
 import { styles } from "../../lib/inlineStyles"
 
 class TicketDetails extends PureComponent {

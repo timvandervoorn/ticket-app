@@ -1,17 +1,12 @@
-import React, { PureComponent } from "react"
-import "./CommentForm.css"
-import { connect } from "react-redux"
-import Paper from "@material-ui/core/Paper"
-import Grid from "@material-ui/core/Grid"
-import { withStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
-import Typography from "@material-ui/core/Typography"
-import MenuItem from "@material-ui/core/MenuItem"
+import Grid from "@material-ui/core/Grid"
+import Paper from "@material-ui/core/Paper"
+import { withStyles } from "@material-ui/core/styles"
 import TextField from "@material-ui/core/TextField"
-
-import InputAdornment from "@material-ui/core/InputAdornment"
-
+import React, { PureComponent } from "react"
+import { connect } from "react-redux"
 import { styles } from "../../lib/inlineStyles"
+import "./CommentForm.css"
 
 class CommentForm extends PureComponent {
   componentDidMount() {}
@@ -20,7 +15,6 @@ class CommentForm extends PureComponent {
 
   handleSubmit = e => {
     e.preventDefault()
-    // this.props.onSubmit(this.state)
     this.props.handleCommentCreate(this.state)
     this.setState({
       comment: ""

@@ -1,5 +1,9 @@
-import { ADD_USER, UPDATE_USER, UPDATE_USERS } from "../actions/users"
-import { USER_LOGOUT } from "../actions/users"
+import {
+  ADD_USER,
+  UPDATE_USER,
+  UPDATE_USERS,
+  USER_LOGOUT
+} from "../actions/users"
 
 export default (state = null, { type, payload }) => {
   switch (type) {
