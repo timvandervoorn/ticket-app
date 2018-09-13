@@ -1,21 +1,21 @@
+import Button from "@material-ui/core/Button"
+import Grid from "@material-ui/core/Grid"
+import { withStyles } from "@material-ui/core/styles"
 import React, { PureComponent } from "react"
 import { connect } from "react-redux"
+import { Redirect } from "react-router-dom"
+import { createComment, deleteComment } from "../../actions/comments"
 import {
+  editTicket,
   getTicketDetails,
-  getTicketsForCurrentEvent,
-  editTicket
+  getTicketsForCurrentEvent
 } from "../../actions/tickets"
 import { getSingleCustomer } from "../../actions/users"
 import { userId } from "../../jwt"
-import TicketDetails from "./TicketDetails"
-import { Redirect } from "react-router-dom"
+import { styles } from "../../lib/inlineStyles"
 import CommentListContainer from "../comments/CommentListContainer"
 import EditTicketForm from "./EditTicketForm"
-import { styles } from "../../lib/inlineStyles"
-import Grid from "@material-ui/core/Grid"
-import { withStyles } from "@material-ui/core/styles"
-import Button from "@material-ui/core/Button"
-import { deleteComment, createComment } from "../../actions/comments"
+import TicketDetails from "./TicketDetails"
 
 class TicketDetailsContainer extends PureComponent {
   state = {
@@ -98,7 +98,6 @@ class TicketDetailsContainer extends PureComponent {
       this.props.match.params.id,
       this.props.match.params.ticketId
     )
-    console.log("ticket details fetched")
   }
 
   handleCommentDelete = data => {
@@ -108,7 +107,6 @@ class TicketDetailsContainer extends PureComponent {
       this.props.match.params.id,
       this.props.match.params.ticketId
     )
-    console.log("ticket details fetched")
   }
 
   currentRiskLevel
